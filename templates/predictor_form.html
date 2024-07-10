@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Mark Predictor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('https://www.36ng.ng/wp-content/uploads/2015/09/graduation-university-backgrounds-wallpapers-1024x853.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            text-align: center;
+        }
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .main {
+            margin: auto;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            width: 50%;
+            margin-top: 50px;
+        }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Sign In</a>
+        <a href="#">Log In</a>
+        <a href="#">About Us</a>
+    </div>
+    <div class="main">
+        <h1>Student Mark Predictor</h1>
+        <form action="/result" method="POST">
+            <select name="group" required>
+                <option value="" disabled selected>Group</option>
+                <option value="0">Group A</option>
+                <option value="1">Group B</option>
+                <option value="2">Group C</option>
+                <option value="3">Group D</option>
+                <option value="4">Group E</option>
+            </select>
+            <select name="education" required>
+                <option value="" disabled selected>Parent's education</option>
+                <option value="0">Masters</option>
+                <option value="1">Bachelors</option>
+                <option value="2">Associate</option>
+                <option value="3">College</option>
+                <option value="4">High school</option>
+                <option value="5">Some high school</option>
+            </select>
+            <select name="program" required>
+                <option value="" disabled selected>Standard/Assisted Achievement Program</option>
+                <option value="0">Standard</option>
+                <option value="1">Assisted Achievement</option>
+            </select>
+            <select name="course_prep" required>
+                <option value="" disabled selected>Online Course Preparation</option>
+                <option value="0">Completed</option>
+                <option value="1">Not completed</option>
+            </select>
+            <input type="number" name="academic_score" placeholder="Academic Score" required>
+            <input type="number" name="attendance_score" placeholder="Attendance Score" required>
+            <input type="number" name="hackathon_score" placeholder="Hackathon Score" required>
+            <select name="student_degree" required>
+                <option value="" disabled selected>Student Degree</option>
+                <option value="0">Bachelor's</option>
+                <option value="1">Master's</option>
+                <option value="2">Doctoral</option>
+            </select>
+            <button type="submit" class="btn btn-warning">Submit</button>
+        </form>
+        <form action="/visualization" method="GET">
+            <button type="submit" class="btn btn-warning">See Visualization</button>
+        </form>
+        <form action="/marks_and_attendance" method="GET">
+            <button type="submit" class="btn btn-warning">Marks and Attendance</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Visualization</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            background-color: rgb(232, 158, 158);
+            color: white;
+        }
+        .main {
+            margin: auto;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            width: 80%;
+            margin-top: 50px;
+        }
+        .chart {
+            width: 80%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Prediction Visualization</h1>
+        <div class="chart">
+            {{ graph_html|safe }}
+        </div>
+        {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+            {{ error_message }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

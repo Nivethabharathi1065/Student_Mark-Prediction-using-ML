@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predicted Marks</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://leighacademy.org.uk/wp-content/uploads/2021/04/111203299_gettyimages-1146240359.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .main {
+            margin: auto;
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            width: 60%;
+            margin-top: 50px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+        h3 {
+            color: #ffcc00;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .detail, .prediction, .accuracy, .feedback {  /* Added .feedback class */
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        strong {
+            color: aqua;
+        }
+        .alert {
+            margin-top: 20px;
+        }
+        .plotly-graph {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h3>Details:</h3>
+        <div class="detail">Group: <strong>{{ group }}</strong></div>
+        <div class="detail">Parental level of education: <strong>{{ education }}</strong></div>
+        <div class="detail">Standard/Assisted Achievement Program: <strong>{{ program }}</strong></div>
+        <div class="detail">Online Course Preparation: <strong>{{ course_prep }}</strong></div>
+        <div class="detail">Academic Score: <strong>{{ academic_score }}</strong></div>
+        <div class="detail">Attendance Score: <strong>{{ attendance_score }}</strong></div>
+        <div class="detail">Hackathon Score: <strong>{{ hackathon_score }}</strong></div>
+        <div class="detail">Student Degree: <strong>{{ student_degree }}</strong></div>
+        
+        <h3>Marks Prediction:</h3>
+        <div class="prediction">The predicted Academic Score (LR) is <strong>{{ academic_lr }}</strong> and (KNN) <strong>{{ academic_knn }}</strong></div>
+        <div class="prediction">The predicted Attendance Score (LR) is <strong>{{ attendance_lr }}</strong> and (KNN) <strong>{{ attendance_knn }}</strong></div>
+        <div class="prediction">The predicted Hackathon Score (LR) is <strong>{{ hackathon_lr }}</strong> and (KNN) <strong>{{ hackathon_knn }}</strong></div>
+
+        <h3>CGPA Prediction:</h3>
+        <div class="prediction">The predicted CGPA (Linear Regression) is <strong>{{ cgpa_lr }}</strong> and (KNN) <strong>{{ cgpa_knn }}</strong></div>
+
+        <h3>Model Accuracy:</h3>
+        <div class="accuracy">Linear Regression Score: <strong>{{ lr_r2_score }}</strong></div>
+        <div class="accuracy">KNN Score: <strong>{{ knn_r2_score }}</strong></div>
+
+        <h3>Feedback:</h3>
+        <div class="feedback"><strong>{{ lr_feedback }}</strong></div> <!-- Display LR feedback in bold -->
+
+        <h3>Predicted vs Actual CGPA:</h3>
+        <div class="plotly-graph">{{ graph_html | safe }}</div>
+
+        {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+            {{ error_message }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
