@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 https://student-marks-predicting.herokuapp.com/
 
 # student-performance-python
@@ -21,3 +22,6 @@ HTML files have been stored under the templates folder.
 For the visualisation page, sweetviz library of python has been used.
 
 Thankyou!
+=======
+# Student_Mark-Prediction-using-ML
+>>>>>>> f53a71dabe875a5d978ae79756100c4aacac0e03
